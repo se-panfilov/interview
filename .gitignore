@@ -9,3 +9,4 @@ selenium-debug.log
 *.log
 docs
 yarn.lock
+asd.js

@@ -29,6 +29,7 @@ function getElem (id) {
 function checkForValidChars (str, regexp) {
   return new RegExp(regexp).test(str)
 }
+
 const elems = {
   getPersonRadioVal () {
     return getElem(RADIO.PERSON_ID).checked
