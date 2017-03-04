@@ -6,7 +6,7 @@ function solution (X, Y, A) {
   for (var i = 0; i < N; i++) {
     if (A[i] == X)
       nX += 1;
-    if (A[i] == Y)
+    else if (A[i] == Y) //remove else
       nY += 1;
     if (nX == nY)
       result = i;
