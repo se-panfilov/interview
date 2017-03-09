@@ -14,32 +14,30 @@ function sum (a) {
 
 let result
 
-result = sum(2)(5)(10)
-console.info(result)
+// result = sum(2)(5)(10)
+// console.info(result)
 
-//2. My, reduce // TODO (S.Panfilov)
-function sum2(cur, arr) {
+//2. My, reduce
+function sum (cur, arr) {
   arr = arr || []
-  arr.push (cur)
+  arr.push(cur)
 
-  let result = arr.reduce((v,p) => v+p)
+  let result = arr.reduce((v, p) => v + p)
 
   function wrap (val) {
     return sum(val, arr)
   }
 
-  wrap.valueOf = function () {
-    console.info(result)
-  }
+  wrap.valueOf = () => result
 
   return wrap
 }
 
-result = sum2(2)(5)(10)
+result = sum(2)(5)(10)
 console.info(result)
 
 //3. Original
-function sum3 (a) {
+function sum (a) {
   let currentSum = a
 
   function wrap (b) {
@@ -54,5 +52,5 @@ function sum3 (a) {
   return wrap
 }
 
-// result = sum3(2)(5)(10)
+// result = sum(2)(5)(10)
 // console.info(result)
