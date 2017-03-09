@@ -14,7 +14,7 @@ function fuzzbuzz (arr) {
 
 //2
 function fussBuzz (arr, position = 0) {
-  if (position>=arr.length) return
+  if (position >= arr.length) return
 
   let str = ''
   const isFuzz = (arr[position] % 3) === 0
