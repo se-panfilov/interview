@@ -10,9 +10,9 @@ function fuzzbuzz (arr) {
   }
 }
 
-//fuzzbuzz([1, 3, 5, 4, 4, 7, 9, 15, 25, 30])
+// fuzzbuzz([1, 3, 5, 4, 4, 7, 9, 15, 25, 30])
 
-//2
+//2 functional style
 function fussBuzz (arr, position = 0) {
   if (position >= arr.length) return
 

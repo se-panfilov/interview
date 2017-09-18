@@ -6,7 +6,6 @@ function fact (n, result = []) {
   return fact(n - 1, result)
 }
 
-
 //2. simple
 function fact2 (n) {
   const result = []
