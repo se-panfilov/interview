@@ -26,7 +26,7 @@ Observable.of = function (...rest) {
     observerObj.complete()
   }
 
-  return new Observable(producer);
+  return new Observable(producer)
 }
 
 /**
@@ -38,9 +38,9 @@ Observable.prototype.subscribe = function (observerObj) {
   //      obj.next(Observable.value)// think here
   //     }
   // }
-  const producer = this.producer;
+  const producer = this.producer
 
-  producer(observerObj);
+  producer(observerObj)
 }
 
 Observable.fromPromise = function (promise) {
@@ -52,33 +52,33 @@ Observable.fromPromise = function (promise) {
       observerObj.complete()
 
     })
-    // setTimeout(() => console.log('1'), 4);
-    // console.log('2');
+    // setTimeout(() => console.log('1'), 4)
+    // console.log('2')
     // 2
     // 1
   }
 
-  return new Observable(producer);
+  return new Observable(producer)
   //const producer = function (observerObj) {
 //        rest.forEach(v => observerObj.next(v))
   //      observerObj.complete()
   //}
 
-  //return new Observable(producer);
+  //return new Observable(producer)
 }
-// import { assert, expect } from "chai";
-//import { Observable } from "rxjs";
-import {Observable} from "./implementation";
+// import { assert, expect } from "chai"
+//import { Observable } from "rxjs"
+import {Observable} from "./implementation"
 
 
 // Alt + T
 // yarn test:es6
 
 // 1-2-3
-// const stream$ = Observable.of(1, 2, 3);
+// const stream$ = Observable.of(1, 2, 3)
 // stream$.subscribe({
 //     next: v => console.log(v),
 //     complete: () => console.log('complete'),
-// });
+// })
 
 
