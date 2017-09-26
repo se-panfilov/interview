@@ -7,10 +7,22 @@ function reduceStr (str) {
   return newStr
 }
 
+
+// // without recursion
+// function reduceStr (str) {
+//   // console.info(str)
+//   do {
+//     let newStr = str.replace('()', '').replace('{}', '').replace('[]', '')
+//   }
+//   while  (newStr !== str)
+//
+//   return newStr
+// }
+
+
 function verifyNesting (str) {
   return reduceStr(str).length === 0
 }
 
 console.log(verifyNesting('[{{[(){}]}}[]{}{{(())}}]')) //correct
 console.log(verifyNesting('[{{[(){}]}}[]{}{({())}}]')) //incorrect
-
