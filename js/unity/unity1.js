@@ -86,7 +86,7 @@ const expect = require('chai').expect
 
 // Configure Mocha, telling both it and chai to use BDD-style tests.
 // mocha.setup("bdd")
-// chai.should()
+// const expect = chai.expect
 
 // describe('StatsCollector', () => {
 //   it('it should have tests', () => {
