@@ -89,66 +89,41 @@ async function getMessagesForConversations (conversations) {
   if (!Array.isArray(conversations)) throw new Error('Conversations should be an array')
 
   return Promise.all(conversations.map(async (v) => ({
-    conversation_id: v.id,
+    id: v.id,
     messages: await getMessages(v.id)
   })))
 }
 
 function getLatestMessages (messages) {
-  return messages.map(v => ({conversation_id: v.conversation_id, latest_message: v.messages[0]}))
+  return messages.map(v => ({id: v.id, latest_message: v.messages[0]}))
 }
 
-async function getUsersForConversations (conversations) {
-  if (!Array.isArray(conversations)) throw new Error('Conversations should be an array')
+async function mapResult (messages) {
+  return Promise.all(messages.map(async (v) => {
+    const {id, avatar_url} = await getUser(v.latest_message.from_user_id)
 
-  const idArr = conversations.map(v => v.with_user_id)
-  return Promise.all(idArr.map(async (v) => ({
-    user_id: v,
-    avatar_url: (await getUser(v)).avatar_url
-  })))
-}
-
-function buildResponse (messages, users) {
-  if (!Array.isArray(messages)) throw new Error('Messages should be an array')
-  if (!Array.isArray(users)) throw new Error('Users should be an array')
-  if (messages.length !== users.length) throw new Error('Inconsistent data provided')
-
-  const result = messages.map(v => {
-    const result = {
-      id: v.conversation_id,
+    return {
+      id: v.id,
       latest_message: {
         id: v.latest_message.id,
         body: v.latest_message.body,
-        created_at: v.latest_message.created_at
+        created_at: v.latest_message.created_at,
+        from_user: {id, avatar_url}
       }
     }
-
-    const fromUserId = v.latest_message.from_user_id
-    result.latest_message.from_user = users.map(v => ({id: v.user_id, avatar_url: v.avatar_url})).find(v => v.id === fromUserId)
-
-    return result
-  })
-
-  // console.dir(result, {showHidden: true, depth: null, colors: true})
-
-  return result
-
+  }))
 }
-
 async function getRecentConversationSummaries () {
   const conversations = await getConversations()
-  const users = await getUsersForConversations(conversations)
-  console.info(users)
   const messages = await getMessagesForConversations(conversations)
   const latestMessages = getLatestMessages(messages)
 
-  return buildResponse(latestMessages, users)
+  return mapResult(latestMessages)
 }
 
 // TODO (S.Panfilov)
 const mocha = require('mocha')
 const expect = require('chai').expect
-const should = require('chai').should
 
 // Configure Mocha, telling both it and chai to use BDD-style tests.
 // mocha.setup("bdd")
@@ -159,6 +134,7 @@ describe('getRecentConversationSummaries()', () => {
   it('should return the current user\'s latest conversations sorted by latest message\'s timestamp', async () => {
     const result = await getRecentConversationSummaries()
 
+    // TODO (S.Panfilov)
     // result.should.deep.equal([
     expect(result).to.be.deep.equal([
       {
