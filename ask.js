@@ -11,6 +11,13 @@
 // 10. Yur last project and team
 
 // ---------------------------------------------------------------------
+//function foo () {
+//   a = 10;
+//   var a
+//   console.log(a) // what will be the output?
+// }
+
+// ---------------------------------------------------------------------
 
 // 1. FuzzBuzz
 
@@ -19,7 +26,7 @@
 // if number can be divided by 5 - return 'Buz'
 // if both - 'FuzzBuzz'
 
-// Bonus - can you get rid of "for"
+// Bonus - can you get rid of "for" loop
 
 // 2. Phone formatting
 // console.info(solution('004-448-555-583-61')) //004-448-555-583-61
@@ -27,4 +34,4 @@
 // console.info(solution('004-448-555-583-61')) //555-372-654
 // console.info(solution('004-448-555-583-613-344')) //555-372-654
 
-
+// Example: ('0 - 22 1985--324').match(/\d/g).join('').match(/\d{1,3}/g).join('-')

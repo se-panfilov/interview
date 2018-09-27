@@ -10,7 +10,8 @@ function swipe (str, position) {
 }
 
 function solution (phone) {
-  const digits = phone.match(/\d{1,3}/g).join('')
+  // const digits = phone.match(/\d{1,3}/g).join('')
+  const digits = phone.match(/\d/g).join('')
   const result = digits.match(/\d{1,3}/g).join('-')
 
   const tail = result.match(/-\d*$/)
