@@ -25,7 +25,7 @@ function solution (phone) {
   return result
 }
 
-console.info(solution('004-448-555-583-61'))//004-448-555-583-61
-console.info(solution('0 - 22 1985--324'))//022-198-53-24
-console.info(solution('004-448-555-583-61'))//555-372-654
-console.info(solution('004-448-555-583-613-344'))//555-372-654
+console.info(solution('004-448-555-583-61')) // 004-448-555-583-61
+console.info(solution('0 - 22 1985--324')) // 022-198-53-24
+console.info(solution('004-448-555- 58-361')) // 004-448-555-583-61
+console.info(solution('004-44 8-555-583-613- -344')) // 004-448-555-583-613-344
