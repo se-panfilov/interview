@@ -19,18 +19,15 @@ function solution(str) {
     const nextVal = list[next]
     const isSame = (currentVal === nextVal)
 
-    if (isSame) {
-      end = next
-      current += 1
-      next += 1
-    } else {
-      end = next
+    end = next
+    current += 1
+    next += 1
+
+    if (!isSame) {
       const part = list.slice(start, end).join('')
       result.push(part)
       start = next
       end = next + 1
-      current += 1
-      next += 1
     }
   })
 
