@@ -1,0 +1,22 @@
+{
+  "name": "interview",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ask.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/se-panfilov/interview.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/se-panfilov/interview/issues"
+  },
+  "homepage": "https://github.com/se-panfilov/interview#readme",
+  "dependencies": {
+    "jest": "24.8.0"
+  }
+}
